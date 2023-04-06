@@ -137,3 +137,23 @@ class Project_User_View(APIView):
         return Response(serailizer)
         
         """
+
+from datetime import datetime
+import time
+#SQl Query
+import pandas as pd
+
+from django.db import connection
+def call_sql(request):
+    with connection.cursor()  as cursor:
+       
+        cursor.execute("select * from WebApp_roll")
+        row = cursor.fetchall()
+        d = pd.DataFrame(row)
+        print(d)
+
+        #Dict
+        # columns = [col[0] for col in cursor.description]
+        # row =  [dict(zip(columns, row)) for row in cursor.fetchall()]   
+        #print(row)
+    return HttpResponse(row)

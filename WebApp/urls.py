@@ -8,5 +8,6 @@ urlpatterns = [
     path('user',views.UserProjectDetailView.as_view()),
     path('user_project',views.UserView.as_view()),   #Task
     #path('project_user',views.Project_User_View.as_view()),
+    path('sql',views.call_sql),
 ]
 
